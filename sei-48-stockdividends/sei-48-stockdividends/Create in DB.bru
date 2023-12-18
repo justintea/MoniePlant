@@ -1,0 +1,31 @@
+meta {
+  name: Create in DB
+  type: http
+  seq: 2
+}
+
+post {
+  url: https://api.airtable.com/v0/appftNrNh7uZJfwvg/Database%20management \
+  body: json
+  auth: none
+}
+
+headers {
+  Authorization: Bearer patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0f97f42ef96965d2ce
+}
+
+body:json {
+  {
+    "records": [
+      {
+        
+        "fields": {
+          "Stock": "MacroHard",
+          "Ticker": "MSFT",
+          "Dividend amount": 99.9
+        }
+      }
+  
+    ]
+  }
+}
