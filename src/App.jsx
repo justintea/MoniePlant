@@ -26,36 +26,43 @@ useEffect(() => {
 const makeAPIcall = async () => {
 const stkDresponse = await fetch(stockdetailURL);
 const stkDdata = await stkDresponse.json();
-log(stkDdata);
-log(stkDdata.results[0].name);
-log(stkDdata.results[0].ticker);
-
 
 const stkBresponse = await fetch(stockbasicURL);
 const stkBdata = await stkBresponse.json();
-log(stkBdata.open);
-
 
 const stkDivresponse = await fetch(stockdividendURL);
 const stkDivdata = await stkDivresponse.json();
-// log(stkDivdata[0]);
-log(stkDivdata.results[0].cash_amount);
-log(stkDivdata.results[0].frequency);
 
-// myAppdata
+const newData = 
+  {
+    name: stkDdata.results[0].name,
+    ticker: stkDdata.results[0].ticker,
+    price: stkBdata.open, 
+    div: stkDivdata.results[0].cash_amount,
+    freq: stkDivdata.results[0].frequency
+  };
+
+myAppdata.push(newData);
+log(`within async: ${myAppdata}`);
+log(myAppdata);
 };
+
 makeAPIcall();
+log(`within useEffect: ${myAppdata}`);
+log(myAppdata);
 
 }, []);
 
 
+log(`outside useEffect: ${myAppdata}`);
+log(myAppdata);
 
 
   return (
     <>
       <h1>here we go! Dividend app!</h1>
       <SearchBar />
-      <Stocklist />
+      <Stocklist myAppdata={myAppdata}/>
       <Portfolio />
 
     </>
