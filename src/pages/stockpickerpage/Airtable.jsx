@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import debug from 'debug';
-const log = debug('forms:components:project2');
+const log = debug('proj2:pages:project2');
 
 
 export default function Airtable({ name, ticker, price, div, freq }) {
