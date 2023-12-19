@@ -20,6 +20,12 @@ const stockdetailURL = `https://api.polygon.io/v3/reference/tickers?ticker=${Tic
 //api data for dividend. an object of 4 KVPairs, and 1st KVP is 'results' to an array of dividend objects. return 1 will do.
 const stockdividendURL = `https://api.polygon.io/v3/reference/dividends?ticker=${Ticker1}&apiKey=${PolyapiKey}`;
 
+//*functionality
+// search stock, add to list
+// add from list to portfolio 
+// airtable the data from portfolio
+// compute 
+
 let myAppdata = [];
 
 useEffect(() => {
@@ -43,13 +49,13 @@ const newData =
   };
 
 myAppdata.push(newData);
-log(`within async: ${myAppdata}`);
-log(myAppdata);
+// log(`within async: ${myAppdata}`);
+// log(myAppdata);
 };
 
 makeAPIcall();
-log(`within useEffect: ${myAppdata}`);
-log(myAppdata);
+// log(`within useEffect: ${myAppdata}`);
+// log(myAppdata);
 
 }, []);
 

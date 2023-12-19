@@ -4,9 +4,8 @@ export default function StockItem({name, ticker, price, div, freq}) {
 
     return(
 <>
-<li>StockItem
+<li>Name: {name}
     <ul>
-    <li>Name: {name} </li>
     <li>Ticker: {ticker} </li>
     <li>Price: {price} </li>
     <li>Dividend amount: {div} </li>
@@ -17,7 +16,7 @@ export default function StockItem({name, ticker, price, div, freq}) {
     <li>Dividend amount: {stockdiv.cash_amount}</li>
     <li>Payout frequency: {stockdiv.frequency}</li> */}
     </ul>
-    <button>Add/remove stock</button>
+    {/* <button>Add/remove stock</button> */}
 </li>
 
 {/* name
@@ -26,10 +25,6 @@ open price
 dividend
 frequency
 estimated annual div */}
-
-
-
-
 
 </>
     );
