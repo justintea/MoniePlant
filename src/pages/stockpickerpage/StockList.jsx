@@ -8,7 +8,7 @@ export default function StockList({stockData}) {
 <>
 <h2>Stocklist</h2>
 
-{stockData.map((item, idx) => (<Airtable idx={idx} name={item.name} ticker={item.ticker} price={item.price} div={item.div} freq={item.freq} Computed_annum={item.freq*item.div}/>)) }
+{stockData.map((item, idx) => (<Airtable idx={idx} name={item.name} ticker={item.ticker} price={item.price} div={item.div} freq={item.freq}/>)) }
 {/* {stockData.map((item, idx) => (<Airtable idx={idx} name={stockData[0].name} ticker={stockData[0].ticker} price={stockData[0].price} div={stockData[0].div} freq={stockData[0].freq} />)) } */}
 
 {/* <StockItem stockData={stockData} /> */}
