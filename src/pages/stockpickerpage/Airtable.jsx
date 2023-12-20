@@ -3,7 +3,7 @@ import debug from 'debug';
 const log = debug('proj2:pages:project2');
 
 
-export default function Airtable({ name, ticker, price, div, freq }) {
+export default function Airtable({ name, ticker, price, div, freq}) {
 
 // log({name});
 
@@ -24,6 +24,7 @@ const token = 'patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0
                         "price": price,
                         "Dividend_amount": div,
                         "Payout_frequency": freq,
+                        "Computed_annum": div*freq,
                     },
                 };
     

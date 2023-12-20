@@ -26,6 +26,7 @@ export default function StockPickerPage() {
     console.log('Form is passing to handleSubmit via event: ', inputTicker);
     setTickerTitle(inputTicker);
     getApiData();
+    
   };
 
   const getApiData = () => {
@@ -76,9 +77,7 @@ export default function StockPickerPage() {
       // console.log('test6');
       console.log('myAppdata is in test 6: ', myAppdata);
       
-      setStockData(myAppdata);              
-      // setStockData(...myAppdata, newData);
-      // setStockData([...stockData, myAppdata]);
+      setStockData(myAppdata);                //this is where myAppdata = StockData (see line 97)
       console.log('myAppdata is in test 6: ', myAppdata);
 
       console.log('test7: last in the async API call func');
@@ -97,18 +96,17 @@ export default function StockPickerPage() {
       <h1>here we go! Dividend app!</h1>
       <SearchBar handleSubmit={handleSubmit} tickerTitle={tickerTitle} setTickerTitle={setTickerTitle} />
       {/* <Stocklist myAppdata={myAppdata} /> */}
-      <StockList stockData={stockData} />
+      <StockList stockData={stockData} />       
+      {/* so its ok to pass stockData, instead of myAppdata */}
 
       <Portfolio />
     </>
 
   );
 }
+// QUESTION 1: why only when i control+S, the 2nd ticker appears? i thought there is state change, when i map the items? is there a way i can force a render?
+// isnt line 80 a state update, hence will get a rerender? shouldnt write more code to rerender...
+// but the shop inventory example, didnt need extra to render the peanuts what
 
+{/* <StockList stockData={stockData} />        */}
 
- 
-    //*functionality
-    // search stock, add to list
-    // add from list to portfolio 
-    // airtable the data from portfolio
-    // compute 
