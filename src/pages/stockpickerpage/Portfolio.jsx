@@ -7,9 +7,13 @@ export default function Portfolio() {
 <>
 <h2>Personal Portfolio up</h2>
 <StockItem />
-<StockItem />
 
 <EstEarnings />
 </>
     );
 }
+
+
+// Create * Input quantity = Airtable 
+// read from airtable getall URL
+//  

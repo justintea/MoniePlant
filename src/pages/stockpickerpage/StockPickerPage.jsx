@@ -10,11 +10,12 @@ export default function StockPickerPage() {
 
   const [tickerTitle, setTickerTitle] = useState('');
   const [stockData, setStockData] = useState([]);
+  const [myAppdata, setMyAppData] = useState([]);
 
   const PolyapiKey = 'KhfFuDal8cpHvhr2wRaBNcUjxc0ZHSfs'
   // const Ticker1 = 'KO';
 
-  let myAppdata = [];
+  // let myAppdata = [];
 
   console.log('test2');
 
@@ -41,7 +42,6 @@ export default function StockPickerPage() {
     // console.log('stockdetailURL is: ', stockdetailURL);
     // console.log('stockdividendURL is: ', stockdividendURL);
 
-
     const makeAPIcall = async () => {
       console.log('test5a: inside start of the Async now');
       const stkDresponse = await fetch(stockdetailURL);       //a promise first, before a JSON. //useeffect - api call upon load + does once only
@@ -60,15 +60,27 @@ export default function StockPickerPage() {
         price: stkBdata.open,
         div: stkDivdata.results[0].cash_amount,
         freq: stkDivdata.results[0].frequency
+        // name: stkDdata.results.name,
+        // ticker: stkDdata.results.ticker,
+        // price: stkBdata.open,
+        // div: stkDivdata.results.cash_amount,
+        // freq: stkDivdata.results.frequency
+
       };
 
       console.log('test5b: newData is- ', newData);
       myAppdata.push(newData);
+      setMyAppData(myAppdata);
 
       // log(`within async: ${myAppdata}`);
       // console.log('test6');
-      // console.log('myAppdata is in test 6: ', myAppdata);
+      console.log('myAppdata is in test 6: ', myAppdata);
+      
       setStockData(myAppdata);              
+      // setStockData(...myAppdata, newData);
+      // setStockData([...stockData, myAppdata]);
+      console.log('myAppdata is in test 6: ', myAppdata);
+
       console.log('test7: last in the async API call func');
 
     };
