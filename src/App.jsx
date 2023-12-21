@@ -10,18 +10,9 @@ function App() {
   return (
     <>
       <nav>
-        <Link to='/'>
-            ==Homepage==  
-        </Link>
-
-        <Link to='/stockpicker'>
-            /Stock Picker/  
-        </Link>
-
-        <Link to='/historical'>
-            ==Historical data==  
-          {/* <h2>Historical data</h2> */}
-        </Link>
+        <Link to='/'> ==Homepage==  </Link>
+        <Link to='/stockpicker'> /Stock Picker/ </Link>
+        <Link to='/historical'> ==Historical data== </Link>
       </nav>
     <hr />
 
