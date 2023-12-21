@@ -1,16 +1,15 @@
-import { useState } from 'react'
 import debug from 'debug';
 const log = debug('proj2:pages:project2');
 
 export default function SearchBar({handleSubmit, tickerTitle, setTickerTitle}) {
 
-//*************************dont declare state twice
+//*************************dont declare state twice. you declare here and StockPickerPage for tickerTitle.
 
 const handleChange = (event) => {
 event.preventDefault();
 log('you are typing');
 const  inputChar = event.target.value;
-setTickerTitle(inputChar);  //letters come out L13+21 onChange
+setTickerTitle(inputChar);                  //letters come out L13+21 onChange
 };
 
     return (

@@ -1,9 +1,6 @@
-
-// export default function StockItem({ stockData }) {
-export default function StockItem({ name, ticker, price, div, freq}) {
+export default function StockItem({ name, ticker, price, div, freq }) {
     // export default function StockItem({stockData}) {
     // const stockInfo = stockData?.[0];
-
 
     return (
         <>
@@ -13,7 +10,7 @@ export default function StockItem({ name, ticker, price, div, freq}) {
                     <li>Price: ${price} </li>
                     <li>Dividend amount: ${div} </li>
                     <li>Payout frequency (per annum): {freq} </li>
-                    <li>Computed (per annum): ${div*freq} </li>
+                    <li>Computed (per annum): ${div * freq} </li>
 
                 </ul>
             </li>
@@ -21,7 +18,7 @@ export default function StockItem({ name, ticker, price, div, freq}) {
     );
 }
 
-{/* <li>Computed (per annum): ${div*freq} </li> */}
+{/* <li>Computed (per annum): ${div*freq} </li> */ }
 
 
 {/* <li>Name: {stockInfo?.name}
@@ -33,18 +30,18 @@ export default function StockItem({ name, ticker, price, div, freq}) {
                 </ul>
             </li> */}
 
-  {/* <li>Ticker: {stockData.ticker} </li>
+{/* <li>Ticker: {stockData.ticker} </li>
     <li>Price: {stockData.price} </li>
     <li>Dividend amount: {stockData.div} </li>
     <li>Payout frequency: {stockData.freq} </li> */}
-    {/* <li>Name: {stockd.name}</li>
+{/* <li>Name: {stockd.name}</li>
     <li>Ticker: {stockd.ticker}</li>
     <li>Price: {stockb.price}</li>
     <li>Dividend amount: {stockdiv.cash_amount}</li>
     <li>Payout frequency: {stockdiv.frequency}</li> */}
-    {/* <button>Add/remove stock</button> */}
+{/* <button>Add/remove stock</button> */ }
 
-    {/* name
+{/* name
 ticker
 open price
 dividend

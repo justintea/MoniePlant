@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import EstEarnings from "./EstEarnings";
 import StockItem from "./StockItem";
 
-export default function Portfolio({stocksDB , setstocksDB, token}) {
+export default function Portfolio({stocksDB , setstocksDB, token, position, setPosition}) {
 
 
 //=================================================================================
@@ -22,7 +22,7 @@ useEffect(() => {
       setstocksDB(data.records);
   /*         console.log(data);*/  
   })();
-  }, []);
+  }, [position]);           // this is critical: 1) moved all the position useState to StockPickerPage in order to 2) pass to Portfolio & Airtable, when AT is the original user, becoz 3) i needed a refresh of state of the Portfolio everything an handleUpdate is done, so 4) useEffect had to be used, rerender more than 1 and when Position has been updated/changed 
 
 //=================================================================================
 

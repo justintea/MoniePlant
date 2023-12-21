@@ -1,12 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import '../../App.css'
 import SearchBar from './SearchBar'
 import StockList from './StockList'
 import Portfolio from './Portfolio'
 import EstEarnings from './EstEarnings';
-
-import debug from 'debug';
-const log = debug('proj2:pages:project2');
 
 export default function StockPickerPage() {
 
@@ -14,15 +11,14 @@ export default function StockPickerPage() {
   const [stockData, setStockData] = useState([]);
   const [myAppdata, setMyAppData] = useState([]);
   const [stocksDB, setstocksDB] = useState([]);
+  const [position, setPosition] = useState('');
+
 
   const PolyapiKey = 'KhfFuDal8cpHvhr2wRaBNcUjxc0ZHSfs'
   const token = 'patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0f97f42ef96965d2ce';
 
   // const Ticker1 = 'KO';
-
   // let myAppdata = [];
-
-  console.log('test2');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -65,27 +61,21 @@ export default function StockPickerPage() {
         ticker: stkDdata.results[0].ticker,
         price: stkBdata.open,
         div: stkDivdata.results[0].cash_amount,
-        freq: stkDivdata.results[0].frequency
-        // name: stkDdata.results.name,
-        // ticker: stkDdata.results.ticker,
-        // price: stkBdata.open,
-        // div: stkDivdata.results.cash_amount,
-        // freq: stkDivdata.results.frequency
-
+        freq: stkDivdata.results[0].frequency,
       };
 
       console.log('test5b: newData is- ', newData);
       // myAppdata.push(newData);                       // cannot push arrays
       // setMyAppData(myAppdata);                       //clean up 
 
-      const tmp = [...myAppdata, newData];              //therefore create a tmp array
+      const tmp = [...myAppdata, newData];              //*this is critical: therefore create a tmp array. this solves the 'why does it not refresh when 2nd stock is searched' problem
       setMyAppData(tmp);                                
 
       // log(`within async: ${myAppdata}`);
       // console.log('test6');
       console.log('myAppdata is in test 6: ', tmp);     
       
-      setStockData(tmp);                //this is where myAppdata = StockData (see line 97)     //set state //clean up what needs to be 'set
+      setStockData(tmp);                                //this is where myAppdata = StockData (see line 97)     //set state //clean up what needs to be 'set
       console.log('myAppdata is in test 6: ', tmp);
 
       console.log('test7: last in the async API call func');
@@ -110,20 +100,19 @@ export default function StockPickerPage() {
       <hr></hr>
 
       {/* <Stocklist myAppdata={myAppdata} /> */}
-      <StockList stockData={stockData}stocksDB={stocksDB} setstocksDB={setstocksDB} token={token}/>       
+      <StockList stockData={stockData}stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} position={position} setPosition={setPosition} />       
       {/* so its ok to pass stockData, instead of myAppdata */}
       <hr></hr>
-
-      {/* <Portfolio /> */}
       
-      <Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />
+      <Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} position={position} />
       <EstEarnings stocksDB={stocksDB} />
 
     </>
 
   );
 }
-// QUESTION 1: why only when i control+S, the 2nd ticker appears? i thought there is state change, when i map the items? is there a way i can force a render?
+
+// QUESTION 1: why only when i control+S, the 2nd ticker appears? i thought there is state change, when i map the items? is there a way i can force a render?   Ans: useEffect
 // isnt line 80 a state update, hence will get a rerender? shouldnt write more code to rerender...
 // but the shop inventory example, didnt need extra to render the peanuts what
 
