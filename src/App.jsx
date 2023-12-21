@@ -4,6 +4,7 @@ import './App.css'
 import HomePage from './pages/homepage/HomePage'
 import StockPickerPage from './pages/stockpickerpage/StockPickerPage'
 import StockLongListPage from './pages/stocklonglistpage/StockLongListPage'
+import StockHistoryPage from './pages/singlestockhistoricalpage/StockHistoryPage'
 
 function App() {
 
@@ -20,7 +21,7 @@ function App() {
       <Route path='/' element={<HomePage />} /> 
       <Route path='/stockpicker' element={<StockPickerPage />} /> 
       <Route path='/historical' element={<StockLongListPage />} /> 
-      <Route path='/historical/:ticker' element={<StockLongListPage />} /> 
+      <Route path='/historical/:ticker' element={<StockHistoryPage />} /> 
 
     </Routes>
 

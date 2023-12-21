@@ -1,10 +1,24 @@
+import { Link } from 'react-router-dom'
 import { list } from '../../assets/list'
-
 
 export default function StockLongListPage() {
     
-  const items = list.map(({idx, Ticker, Name, Industry, MarketCap})  => (<li key={idx}> {Ticker} - {Name} - {Industry} - {MarketCap}</li>    ) ); 
+  const items = list.map(({idx, Ticker, Name, Industry, MarketCap})  => {
+
+    const path = `/historical/${Ticker}`;
+    return ( <li key={idx}>   <Link to={path}>{Ticker}</Link> - {Name} - {Industry} - {MarketCap}</li> )
+
+  });
   
+  
+  // (
+  // <li key={idx}> {Ticker} - {Name} - {Industry} - {MarketCap}</li>    
+  // ) 
+  // ); 
+  
+  // (<li key={idx}> {Ticker} - {Name} - {Industry} - {MarketCap}</li>    ) 
+  // ); 
+
   return (
       <>
         <h1>Historical data</h1>
