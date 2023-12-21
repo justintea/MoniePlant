@@ -110,7 +110,7 @@ export default function StockPickerPage() {
       {/* <Portfolio /> */}
       
       <Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />
-      <EstEarnings />
+      <EstEarnings stocksDB={stocksDB} />
 
     </>
 

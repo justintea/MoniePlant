@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import debug from 'debug';
 import Portfolio from "./Portfolio";
+import EstEarnings from "./EstEarnings";
 const log = debug('proj2:pages:project2');
 
 
@@ -29,7 +30,7 @@ setPosition(inputPosition);
 console.log('position state is: ',position);
 }
 
-inputPosition = Number(position);
+inputPosition = Number(position);           // you need to understand what can be passed, what cannot
 //=================================================================================
 //* Create
 
@@ -42,12 +43,10 @@ inputPosition = Number(position);
                         "ticker": ticker,
                         "price": price,
                         "position": inputPosition,
-                        // "position": position?.[0],
                         "Dividend_amount": div,
                         "Payout_frequency": freq,
                         "Computed_unitannum": div*freq,
                         "Computed_grossannum": inputPosition * div * freq,
-                        // "Computed_grossannum": position?.[0]*div*freq,
 
                     },
                 };
@@ -103,6 +102,19 @@ inputPosition = Number(position);
 
 const handleUpdate = () => {
 
+  // value from the label
+  //needs a body with ${} 
+  // then the basic structure...
+  // how to get the id though? 
+
+  
+
+
+
+
+
+
+  
     
 }
 //=================================================================================
@@ -116,10 +128,11 @@ return (
     </label>  
     <br></br>
     
-    {/* {<Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />} */}
     </>
 );
 } //end of Airtable 
+
+{/* {<Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />} */ }
 
 
 {/* <button onClick={handleCreate}>Create</button>
