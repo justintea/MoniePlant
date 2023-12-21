@@ -4,14 +4,14 @@ import Portfolio from "./Portfolio";
 const log = debug('proj2:pages:project2');
 
 
-export default function Airtable({ name, ticker, price, div, freq}) {
+export default function Airtable({ stocksDB, setstocksDB, token, name, ticker, price, div, freq}) {
 
 // log({name});
 
-const [stocksDB, setstocksDB] = useState([]);
+// const [stocksDB, setstocksDB] = useState([]);
 const [position, setPosition] = useState('');
 
-const token = 'patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0f97f42ef96965d2ce';
+// const token = 'patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0f97f42ef96965d2ce';
 
 
 //=================================================================================
@@ -116,7 +116,7 @@ return (
     </label>  
     <br></br>
     
-    {<Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />}
+    {/* {<Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />} */}
     </>
 );
 } //end of Airtable 

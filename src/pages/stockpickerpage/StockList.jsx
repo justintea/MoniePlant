@@ -3,7 +3,7 @@ import Airtable from './Airtable';
 import EstEarnings from './EstEarnings';
 
 
-export default function StockList({stockData}) {
+export default function StockList({stockData, stocksDB, setstocksDB, token}) {
     // console.log('from StockList: ', stockData);
 
     return(
@@ -13,10 +13,9 @@ export default function StockList({stockData}) {
 {stockData.map((stock) => (<StockItem name={stock.name} ticker={stock.ticker} price={stock.price} div={stock.div} freq={stock.freq}   />) )}
 {/* <StockItem stockData={stockData} /> */}
 
-{stockData.map((item, idx) => (<Airtable idx={idx} name={item.name} ticker={item.ticker} price={item.price} div={item.div} freq={item.freq}/>)) }
+{stockData.map((item, idx) => (<Airtable stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} idx={idx} name={item.name} ticker={item.ticker} price={item.price} div={item.div} freq={item.freq}/>)) }
 {/* {stockData.map((item, idx) => (<Airtable idx={idx} name={stockData[0].name} ticker={stockData[0].ticker} price={stockData[0].price} div={stockData[0].div} freq={stockData[0].freq} />)) } */}
 
-<EstEarnings />
 
 
 </>

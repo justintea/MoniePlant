@@ -3,6 +3,8 @@ import '../../App.css'
 import SearchBar from './SearchBar'
 import StockList from './StockList'
 import Portfolio from './Portfolio'
+import EstEarnings from './EstEarnings';
+
 import debug from 'debug';
 const log = debug('proj2:pages:project2');
 
@@ -11,8 +13,11 @@ export default function StockPickerPage() {
   const [tickerTitle, setTickerTitle] = useState('');
   const [stockData, setStockData] = useState([]);
   const [myAppdata, setMyAppData] = useState([]);
+  const [stocksDB, setstocksDB] = useState([]);
 
   const PolyapiKey = 'KhfFuDal8cpHvhr2wRaBNcUjxc0ZHSfs'
+  const token = 'patatpO7YZJM55teg.52d4f29e56072d88f606b1e7c9a075bdc94ed9db93e13a0f97f42ef96965d2ce';
+
   // const Ticker1 = 'KO';
 
   // let myAppdata = [];
@@ -80,7 +85,7 @@ export default function StockPickerPage() {
       // console.log('test6');
       console.log('myAppdata is in test 6: ', tmp);     
       
-      setStockData(tmp);                //this is where myAppdata = StockData (see line 97)
+      setStockData(tmp);                //this is where myAppdata = StockData (see line 97)     //set state //clean up what needs to be 'set
       console.log('myAppdata is in test 6: ', tmp);
 
       console.log('test7: last in the async API call func');
@@ -99,11 +104,14 @@ export default function StockPickerPage() {
       <h1>here we go! Dividend app!</h1>
       <SearchBar handleSubmit={handleSubmit} tickerTitle={tickerTitle} setTickerTitle={setTickerTitle} />
       {/* <Stocklist myAppdata={myAppdata} /> */}
-      <StockList stockData={stockData} />       
+      <StockList stockData={stockData}stocksDB={stocksDB} setstocksDB={setstocksDB} token={token}/>       
       {/* so its ok to pass stockData, instead of myAppdata */}
 
       {/* <Portfolio /> */}
       
+      <Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />
+      <EstEarnings />
+
     </>
 
   );
