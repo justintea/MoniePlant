@@ -23,7 +23,6 @@ export default function StockLongListPage() {
       <>
         <h1>Historical data</h1>
         <p>Here is the list of all US stocks. Click on what you're interested in to learn more about their dividend history </p>  
-        <p>(Coming soon!!!)</p>
         <p style={{fontStyle: 'italic'}}>Long list of stocks, to render their dividend history. Data credit: Stockanalysis.com</p>  
         <ul>
           {items}

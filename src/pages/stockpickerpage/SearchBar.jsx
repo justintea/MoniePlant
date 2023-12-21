@@ -16,6 +16,8 @@ setTickerTitle(inputChar);  //letters come out L13+21 onChange
     return (
         <>
             <h2>Searchbar: search for stocks</h2>
+            <p style={{fontStyle: 'italic'}}>Try 'KO' for Coca-Cola, or 'AAPL' for Apple. Alternatively, look up the 'Historical data' page for stocks' tickers.</p>  
+
             <form onSubmit={handleSubmit}>
 
                 <label>Stock ticker <input value={tickerTitle} onChange={handleChange}></input></label>

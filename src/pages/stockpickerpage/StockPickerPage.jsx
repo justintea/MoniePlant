@@ -101,11 +101,18 @@ export default function StockPickerPage() {
 
   return (
     <>
-      <h1>here we go! Dividend app!</h1>
+      <h1>MoniePlant</h1>
+      <h3>Your go-to tool for dividend strategy & information</h3>
+      <p>A simple app to discover stocks with high dividend yields for investment. Nothing that will drastically change your level of wealth, just a money plant.</p>
+      <hr></hr>
+
       <SearchBar handleSubmit={handleSubmit} tickerTitle={tickerTitle} setTickerTitle={setTickerTitle} />
+      <hr></hr>
+
       {/* <Stocklist myAppdata={myAppdata} /> */}
       <StockList stockData={stockData}stocksDB={stocksDB} setstocksDB={setstocksDB} token={token}/>       
       {/* so its ok to pass stockData, instead of myAppdata */}
+      <hr></hr>
 
       {/* <Portfolio /> */}
       

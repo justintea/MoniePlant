@@ -1,5 +1,6 @@
 export default function EstEarnings({stocksDB}) {
 
+//====================================================================================
 const earnings = stocksDB.reduce((earningsSumInStockObjects, obj) => {
     
     // console.log(obj.fields.position);
@@ -19,12 +20,29 @@ const finalEarnings = (Math.round(earnings * 100) / 100).toFixed(2);
 // console.log(earnings);
 // console.log(finalEarnings);
 // console.log('stocksDB: ',stocksDB);
+//====================================================================================
+const portfolio = stocksDB.reduce((portfolioSumInStockObjects, obj) => {
+
+    portfolioSumInStockObjects += (obj.fields.position * obj.fields.price); 
+    console.log(portfolioSumInStockObjects);
+
+return portfolioSumInStockObjects;
+},0);
+
+const finalPortfolio = (Math.round(portfolio * 100) / 100).toFixed(2);
+
+//====================================================================================
+
+const divYield = (Math.round( (finalEarnings/finalPortfolio*100) * 100) / 100).toFixed(2);
+//====================================================================================
 
     return(
 <>
 <h2>Your earnings: check out the total dividend to be gained</h2>
 {/* <p>Estimated earnings (per annum): $999.99</p> */}
 <p>Estimated earnings from this portfolio (per annum): <span style={{fontWeight: 'bold', textDecoration: 'underline'}}>${finalEarnings}</span> </p>
+<p>Total portfolio holding: <span style={{fontWeight: 'bold', textDecoration: 'underline'}}>${finalPortfolio}</span> </p>
+<p>Dividend yield: <span style={{fontWeight: 'bold', textDecoration: 'underline'}}> {divYield}% </span> </p>
 
 </>
     );

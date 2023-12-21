@@ -9,7 +9,8 @@ export default function StockList({stockData, stocksDB, setstocksDB, token}) {
     return(
 <>
 <h2>Stocklist: add stocks you are interested in</h2>
-
+<p style={{fontStyle: 'italic'}}>Key in the number of stocks you intend to buy. To consider more stocks, key in the Searchbar again.</p>  
+<br></br>
 {stockData.map((stock) => (<StockItem name={stock.name} ticker={stock.ticker} price={stock.price} div={stock.div} freq={stock.freq}   />) )}
 {/* <StockItem stockData={stockData} /> */}
 
