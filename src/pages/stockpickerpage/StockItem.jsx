@@ -13,6 +13,8 @@ export default function StockItem({ name, ticker, price, div, freq}) {
                     <li>Price: ${price} </li>
                     <li>Dividend amount: ${div} </li>
                     <li>Payout frequency (per annum): {freq} </li>
+                    <li>Computed (per annum): ${div*freq} </li>
+
                 </ul>
             </li>
         </>

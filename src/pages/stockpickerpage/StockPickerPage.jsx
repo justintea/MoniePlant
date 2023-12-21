@@ -70,15 +70,18 @@ export default function StockPickerPage() {
       };
 
       console.log('test5b: newData is- ', newData);
-      myAppdata.push(newData);
-      setMyAppData(myAppdata);
+      // myAppdata.push(newData);                       // cannot push arrays
+      // setMyAppData(myAppdata);                       //clean up 
+
+      const tmp = [...myAppdata, newData];              //therefore create a tmp array
+      setMyAppData(tmp);                                
 
       // log(`within async: ${myAppdata}`);
       // console.log('test6');
-      console.log('myAppdata is in test 6: ', myAppdata);
+      console.log('myAppdata is in test 6: ', tmp);     
       
-      setStockData(myAppdata);                //this is where myAppdata = StockData (see line 97)
-      console.log('myAppdata is in test 6: ', myAppdata);
+      setStockData(tmp);                //this is where myAppdata = StockData (see line 97)
+      console.log('myAppdata is in test 6: ', tmp);
 
       console.log('test7: last in the async API call func');
 
@@ -99,7 +102,8 @@ export default function StockPickerPage() {
       <StockList stockData={stockData} />       
       {/* so its ok to pass stockData, instead of myAppdata */}
 
-      <Portfolio />
+      {/* <Portfolio /> */}
+      
     </>
 
   );

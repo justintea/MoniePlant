@@ -15,7 +15,7 @@ setTickerTitle(inputChar);  //letters come out L13+21 onChange
 
     return (
         <>
-            <h2>Searchbar</h2>
+            <h2>Searchbar: search for stocks</h2>
             <form onSubmit={handleSubmit}>
 
                 <label>Stock ticker <input value={tickerTitle} onChange={handleChange}></input></label>
