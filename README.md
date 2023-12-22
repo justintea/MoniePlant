@@ -19,9 +19,7 @@ The game was designed and implemented using Javascript, HTML, CSS, with an empha
 The app is deployed on Vercel, and you can use it [here](https://monie-plant.vercel.app/)!
 
 Some screenshots below📷: 
-![Project2_wireframe1]<img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd">
-
-![Project2_wireframe2] (WIP)
+<img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd">
 
 ## App design & development process🏗
 - Define or clarify the why and 'business case' of the app 💵
@@ -32,7 +30,7 @@ Some screenshots below📷:
 
 
 ## Development timeline🗓
-- [x] **Day 0:** High-level roadmapping & prioritization, divergent ideation, draft game architecture, set up server and environment
+- [x] **Day 0:** High-level roadmapping & prioritization, write user stories, test [Polygon API](https://polygon.io/docs/stocks/getting-started), test with Bruno, plan super high-level architecture (eg. Components...before Pages), set up server and environment
 - [x] **Day 1-2:** Develop MVP, core "3-in-1" API request completed
 - [x] **End of Day 2:** Present MVP
 - [x] **Day 3:** Develop P2 functionalities, refactor code due to React-router work
@@ -42,7 +40,7 @@ Some screenshots below📷:
 
 ## Key Learnings👨🏻‍🎓
 - **"Dubious" nature of state in UseState🔮:** States, as declared in useState(), are very useful for us to indicate and render visual changes. However, working with them is not always straightforward (eg. console.log is 'faster' than state change, state cannot be directly passed to assign to variables, promises, etc)
-- **States & props design🔗:** Midwweek, I had to refactor the code due to 2 reasons: introducing routes via React Router, and also allowing certain components to access particular states that had to be shared (eg. position, shared between Airtable and Portfolio). Could I have thought of this beforehand or even at the design phase? I wonder...
+- **States & props design🔗:** Midweek, I had to refactor the code due to 2 reasons: introducing routes via React Router, and also allowing certain components to access particular states that had to be shared (eg. position, shared between Airtable and Portfolio). Could I have thought of this beforehand or even at the design phase? I wonder...
 - **Celebrate daily wins🎉:** We are doing everything almost for the first time! Cherish the win with self and congratulating progress can be uplifting in this journey!
 
 ## Future Improvements🧊
