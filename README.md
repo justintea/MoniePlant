@@ -1,7 +1,7 @@
 # MoniePlant
 
 ## Background🧙🏼‍♂️
-As an MBA grad, I continue to stay abreast economic and financial news, and have always be interested in the world and history of banking and investing. This app aims to take a stab at making one such strategy - dividend investing - to make it easier for people like me to **explore stocks from a dividend perspective and assemble a prospective portfolio, and provide key portfolio statistics.** 
+As an MBA grad, I continue to stay abreast economic and financial news, and am passionate in the world and history of banking and investing <sub>(I'm passionate about many things...)</sub>. This app aims to take a stab at making one such strategy - dividend investing - to make it easier for people like me to **explore stocks from a dividend perspective and assemble a prospective portfolio, and provide key portfolio statistics.** 
 
 The game was designed and implemented using Javascript, HTML, CSS, with an emphasis on **React**, while attending the Software Engineering Immersive course at General Assembly.
 
@@ -11,12 +11,12 @@ The game was designed and implemented using Javascript, HTML, CSS, with an empha
 - HTML
 - CSS
 - Git & GitHub
-- Trello (Kanban / roadmap [here]([https://trello.com/b/pqurEdXB/monieplant-dev-roadmap]))
+- Trello (Kanban / roadmap [here](https://trello.com/b/pqurEdXB/monieplant-dev-roadmap)
 - ChatGPT 3.5
 - Stack Overflow
 
 ## Deployment🚀
-The app is deployed on Vercel, and you can use it [here]([https://scam-invaders.vercel.app/](https://monie-plant.vercel.app/])!
+The app is deployed on Vercel, and you can use it [here](https://monie-plant.vercel.app/)!
 
 Some screenshots below📷: 
 ![Project2_wireframe1]<img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd">
@@ -49,3 +49,4 @@ Some screenshots below📷:
 This game is designed and created within the first 2 weeks of learning React. However, there are still many opportunities to improve the game, which will be worked on in the future, such as:
 - beautifying the web-app (eg. Nav bar)
 - centralising buttons so there is only 1 set of buttons performing similar use cases (eg. 'Create', 'Update shares' button)
+- maybe even store multiple portfolios for comparison (eg. total holdings, yield, CAGR)
