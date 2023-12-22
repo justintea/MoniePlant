@@ -11,7 +11,7 @@ The game was designed and implemented using Javascript, HTML, CSS, with an empha
 - HTML
 - CSS
 - Git & GitHub
-- Trello (Kanban / roadmap [here](https://trello.com/b/pqurEdXB/monieplant-dev-roadmap)
+- Trello (Kanban / roadmap [here](https://trello.com/b/pqurEdXB/monieplant-dev-roadmap))
 - ChatGPT 3.5
 - Stack Overflow
 
