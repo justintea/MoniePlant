@@ -1,50 +1,56 @@
 import { useState } from "react";
+import { token } from '../../components/keysntokens'
 
-export default function Airtable({ stocksDB, setstocksDB, position, setPosition, token, name, ticker, price, div, freq }) {
+export default function Airtable({ stocksDB, setstocksDB, position, setPosition, stockDataSingle }) {
 
   // const [stocksDB, setstocksDB] = useState([]);
   // const [position, setPosition] = useState('');
-
-  const [Id, setId] = useState('');
+  const [errorMsgCreate, setErrorMsgCreate] = useState('');
 
   //=================================================================================
 
   let inputPosition = '';
+  let error = '';
 
-  const handleAddChange = (event) => {
+  const handleCreateChange = (event) => {
     event.preventDefault();
-
     inputPosition = event.target.value;
     console.log('position input is being keyed in...');
-    console.log('inputPosition is: ', inputPosition);
-    setPosition(inputPosition);
 
-    console.log('position state is: ', position);
+    if (inputPosition.includes('-') || isNaN(inputPosition)) {
+      setErrorMsgCreate('Input is negative or invalid, please try again');
+    }
+    else {
+      setErrorMsgCreate('');
+
+      setPosition(inputPosition);
+    }
   }
 
-  inputPosition = Number(position);           // you need to understand what can be passed, what cannot
+  inputPosition = Number(position);
+
   //=================================================================================
   //* Create
 
   const handleCreate = () => {
+    if (error) { return; }
+    //if theres an error, dont proceed with creating. Else, continue...
 
     const data = {
 
       "fields": {
-        "name": name,
-        "ticker": ticker,
-        "price": price,
+        "name": stockDataSingle.name,
+        "ticker": stockDataSingle.ticker,
+        "price": stockDataSingle.price,
         "position": inputPosition,
-        "Dividend_amount": div,
-        "Payout_frequency": freq,
-        "Computed_unitannum": div * freq,
-        "Computed_grossannum": inputPosition * div * freq,
+        "Dividend_amount": stockDataSingle.div,
+        "Payout_frequency": stockDataSingle.freq,
+        "Computed_unitannum": stockDataSingle.div * stockDataSingle.freq,
+        "Computed_grossannum": inputPosition * stockDataSingle.div * stockDataSingle.freq,
 
       },
     };
 
-    console.log(position);
-    console.log(data);
     //======================================
 
     async function create() {
@@ -56,158 +62,36 @@ export default function Airtable({ stocksDB, setstocksDB, position, setPosition,
           Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify(data),
-        //   body:     data,
 
       });
       const jsonData = await responseDB.json();
-      setstocksDB([jsonData, ...stocksDB]);
+      setstocksDB([...stocksDB, jsonData]);
     }
 
     create();
   };
 
-
-  //=================================================================================
-  //* Delete
-
-  //*================================================================================
-  //* For Update request 
-
-  let inputID = '';
-
-  const handleIDChange = (event) => {
-    event.preventDefault();
-
-    inputID = event.target.value;
-    setId(inputID);
-  }
-
-  inputID = (Id);
-
-  //=================================================================================
-
-  // const handleUpdate = async () => { };
-  // value from the label
-  //needs a body with ${} 
-  // then the basic structure...
-  // how to get the id though? 
-
-  let updatedPosition = '';
-  const handleUpdateChange = async (event) => {
-
-    event.preventDefault();
-    updatedPosition = event.target.value;
-    // console.log('position update input is being keyed in...');
-    // console.log('updatePosition is: ', updatedPosition);
-    setPosition(updatedPosition);
-    // console.log('updated position state is: ', position);
-    // updatedPosition = Number(position);
-  }
-
-  updatedPosition = Number(position);             // 20231222 0100am Level 1a completed. Update input works to update ONLY position
-  // 0156am Level 1b completed. Update input works to update position, then autom the Computed amt. also renders in Portfolio, as w the change in state. 
-
-  const handleUpdate = async () => {
-    //* Level 2 Update request
-    // Level 1 is not sufficient because 
-    // 1. it manually updates numbers, circumvents formulas                                                       [Done]
-    // 2. you have to manually key the ID inside                                                                  [Done, workaround :D]
-    // 3. you have to manually write the data in code inside, rather than take user input via a input element     [Done]
-
-    const data = {
-      fields: {
-        position: updatedPosition,
-        Computed_grossannum: updatedPosition * div * freq,
-
-      },
-    };
-
-    // const id = 'recsemxBB4mFT5v7N';
-    const id = inputID;
-    const urlDB = `https://api.airtable.com/v0/appftNrNh7uZJfwvg/Database%20management/${id}`;
-    const response = await fetch(urlDB, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-      },
-      body: JSON.stringify(data),
-    });
-    const jsonData = await response.json();
-    setstocksDB(
-      stocksDB.map((stock) => {
-        if (stock.id === "${id}") {
-          return jsonData;
-        } else {
-          return stock;
-        }
-      })
-    );
-
-    setPosition(updatedPosition);
-  };
   //=================================================================================
   return (
     <>
-      <label> Add number of shares: <input onChange={handleAddChange}></input> <button onClick={handleCreate}>Create</button>
+      <label> Add number of {stockDataSingle.ticker} shares: <input onChange={handleCreateChange}></input> <button onClick={handleCreate}>Create</button>
       </label>
-      <br></br>
-
-      <label> Update total number of shares: <input onChange={handleUpdateChange}></input>
-      </label>
-      <label> id: <input onChange={handleIDChange}></input> </label> <button onClick={handleUpdate}>Update</button>
-      <br></br>
-
+      <p style={{ color: 'red' }}>{errorMsgCreate}</p>
     </>
   );
 } //end of Airtable 
 
-
-//* Level 2 Update request
-// Level 1 is not sufficient because 
-// 1. it manually updates numbers, circumvents formulas
-// 2. you have to manually key the ID inside
-// 3. you have to manually write the data in code inside, rather than take user input via a input element 
-
-//* Level 1 Update request
-// const handleUpdate = async () => {
-
-//   const data = {
-//     fields: {
-//       position: 50,
-//       // remember not to circumvent code calculation 
-//     },
+//* api structure
+//* 1 data
+// const data = {
 //   };
-
-//   const id = 'rec7qsewpEv71Z1S1';
-//   const urlDB = `https://api.airtable.com/v0/appftNrNh7uZJfwvg/Database%20management/${id}`;
-//   const response = await fetch(urlDB, {
-//     method: "PATCH",
-//     headers: {
-//       "Content-Type": "application/json",
-//       Authorization: `Bearer ${token}`,
-//     },
-//     body: JSON.stringify(data),
-//   });
-//     const jsonData = await response.json();
-//     setstocksDB(
-//       stocksDB.map((stock) => {
-//         if (stock.id === "rec7qsewpEv71Z1S1") {
-//           return jsonData;
-//         } else {
-//           return stock;
-//         }
-//       })
-//     );
-
-// };
-
-
-{/* {<Portfolio stocksDB={stocksDB} setstocksDB={setstocksDB} token={token} />} */ }
-
-
-{/* <button onClick={handleCreate}>Create</button>
-<button onClick={handleUpdate}>Update</button> */}
+//* 2 async function
+// async function Update() {
+// const urlDB = 'https://api.airtable.com/v0/appftNrNh7uZJfwvg/Database%20management/${id}';
+// }
+//* 3 execute Async function
+// Update();
+// }
 
 //* structure of API data
 // [{ name,price, ticker,div, freq  }, {}, {} ]

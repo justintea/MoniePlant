@@ -1,10 +1,10 @@
 import { Link, Route, Routes } from "react-router-dom"
-// import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
 import HomePage from './pages/homepage/HomePage'
 import StockPickerPage from './pages/stockpickerpage/StockPickerPage'
 import StockLongListPage from './pages/stocklonglistpage/StockLongListPage'
 import StockHistoryPage from './pages/singlestockhistoricalpage/StockHistoryPage'
+import Airtable from "./pages/stockpickerpage/Airtable"
 
 function App() {
 
@@ -15,17 +15,19 @@ function App() {
         <Link to='/stockpicker'> /Stock Picker/ </Link>
         <Link to='/historical'> ==Historical data== </Link>
       </nav>
-    <hr />
+      <hr />
 
-    <Routes>
-      <Route path='/' element={<HomePage />} /> 
-      <Route path='/stockpicker' element={<StockPickerPage />} /> 
-      <Route path='/historical' element={<StockLongListPage />} /> 
-      <Route path='/historical/:ticker' element={<StockHistoryPage />} /> 
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+        <Route path='/stockpicker' element={<StockPickerPage />} />
+        <Route path='/historical' element={<StockLongListPage />} />
+        <Route path='/historical/:ticker' element={<StockHistoryPage />} />
+        <Route path="/stockpicker/:id" component={Airtable} />
 
-    </Routes>
 
-    
+      </Routes>
+
+
     </>
   );
 }

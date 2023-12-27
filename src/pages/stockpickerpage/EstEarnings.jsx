@@ -5,7 +5,7 @@ export default function EstEarnings({ stocksDB }) {
     const earnings = stocksStorage.reduce((earningsSumInStockObjects, obj) => {
 
         earningsSumInStockObjects += (obj.fields.position * obj.fields.Dividend_amount * obj.fields.Payout_frequency);
-        console.log(earningsSumInStockObjects);
+        // console.log(earningsSumInStockObjects);
 
         return earningsSumInStockObjects;
     }, 0);
@@ -22,7 +22,7 @@ export default function EstEarnings({ stocksDB }) {
     const portfolio = stocks2Storage.reduce((portfolioSumInStockObjects, obj) => {
 
         portfolioSumInStockObjects += (obj.fields.position * obj.fields.price);
-        console.log(portfolioSumInStockObjects);
+        // console.log(portfolioSumInStockObjects);
 
         return portfolioSumInStockObjects;
     }, 0);
