@@ -1,25 +1,25 @@
 # MoniePlant
 
 ## Background🧙🏼‍♂️
-As an MBA grad, I continue to stay abreast economic and financial news, and am passionate in the world and history of banking and investing <sub>(I'm passionate about many things...)</sub>. This app aims to take a stab at making one such strategy - dividend investing - to make it easier for people like me to **explore stocks from a dividend perspective and assemble a prospective portfolio, and provide key portfolio statistics.** 
+I love to make my money work <sub>while I sleep</sub>. Naturally that translates an interest in banking & investing and staying abreast economic developments. [MoniePlant](https://monie-plant.vercel.app/) is an web application that helps users to dive into one particular investment strategy - dividend investing - to make it easier for people like me to **explore stocks from a dividend perspective and assemble a prospective portfolio, and provide key portfolio statistics.** 
 
 The game was designed and implemented using Javascript, HTML, CSS, with an emphasis on **React**, while attending the Software Engineering Immersive course at General Assembly.
 
-## Technologies & sites used🤖
-- JavaScript
-- React
-- HTML
-- CSS
-- Git & GitHub
-- Trello (Kanban / roadmap [here](https://trello.com/b/pqurEdXB/monieplant-dev-roadmap))
-- ChatGPT 3.5
-- Stack Overflow
+## Features 🎬
+- Stock search: Browse stocks to learn their industry type, market capitalisation, and dividend history
+- Portfolio manangement: Add, remove stocks, and manage a dream portfolio
+- Dividend and portfolio yield calculator: Generate value of net expected dividend from dream portfolio
+- History of banking: Read up more about history of finances and various strategies common in the last decade
 
-## Deployment🚀
-The app is deployed on Vercel, and you can use it [here](https://monie-plant.vercel.app/)!
+## Technologies & sites used🤖
+- Emphasis: JavaScript + React.js library
+- Foundational: HTML, CSS
+- Trello (Kanban / roadmap [here](https://trello.com/b/pqurEdXB/monieplant-dev-roadmap))
+- ChatGPT 3.5 (for draft content)
 
 Some screenshots below📷: 
 <img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd">
+![image](https://github.com/justintea/MoniePlant/assets/37412968/d73429f6-fa6f-432d-94c0-47348060008b)
 
 ## App design & development process🏗
 - Define or clarify the why and 'business case' of the app 💵
@@ -27,7 +27,6 @@ Some screenshots below📷:
 - Set high-level timeline to achieve must-haves (eg. MVP) 🏹
 - An iterative process: Code, mistake, learn (or ask for help), re-code 🌀
 - Furnish with better UI/UX (eg. cleaner & more consistent CSS, nicer images) 🎨
-
 
 ## Development timeline🗓
 - [x] **Day 0:** High-level roadmapping & prioritization, write user stories, test [Polygon API](https://polygon.io/docs/stocks/getting-started), test with Bruno, plan super high-level architecture (eg. Components...before Pages), set up server and environment
