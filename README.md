@@ -18,8 +18,10 @@ The game was designed and implemented using Javascript, HTML, CSS, with an empha
 - ChatGPT 3.5 (for draft content)
 
 Some screenshots below📷: 
-<img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd">
-![image](https://github.com/justintea/MoniePlant/assets/37412968/d73429f6-fa6f-432d-94c0-47348060008b)
+<br />
+<kbd><img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/c37413be-dec8-4350-90ab-0271e07417fd"></kbd>
+<br /><br />
+<kbd><img width="500" alt="image" src="https://github.com/justintea/MoniePlant/assets/37412968/d73429f6-fa6f-432d-94c0-47348060008b"></kbd>
 
 ## App design & development process🏗
 - Define or clarify the why and 'business case' of the app 💵
